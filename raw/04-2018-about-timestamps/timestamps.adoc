@@ -1,0 +1,13 @@
+= The most important things you have to know about timestamps
+
+In my opinion date and time representation are one of the most complex things in the software development (so the most complex are stil naming and cache invalidation but this 'timezone' stuff will make you crazy too...).
+There are numberless posibilities how to create, process, evaluate and store the timestamps. And every framework handles it actually a little bit different and there is also a plenty of tools and practices how to handle it properly. Of course it is everything to make your life 'easier'.
+
+In this blog post I will try to show you, what you can do to manage all this complexity, if you a java backend developer who develops REST services with Spring and Hibernate. I will treat the topic in the context of ususal business cases like start and stop of a reservation or start and stop of some business processes. Such low level stuff like operatoins system scheduling is out of the scope. Particular topics I am going to handle are:
+
+	* What is a timestamp and how can it be represented
+	* Date and time in the context of REST
+	* Usage of modern java API
+	* Store timestamps in the DB
+
+Let's clarify first, what we are talking about, when we talking about timestamps.
