@@ -3,11 +3,24 @@
 In my opinion date and time representation are one of the most complex things in the software development (so the most complex are stil naming and cache invalidation but this 'timezone' stuff will make you crazy too...).
 There are numberless posibilities how to create, process, evaluate and store the timestamps. And every framework handles it actually a little bit different and there is also a plenty of tools and practices how to handle it properly. Of course it is everything to make your life 'easier'.
 
-In this blog post I will try to show you, what you can do to manage all this complexity, if you a java backend developer who develops REST services with Spring and Hibernate. I will treat the topic in the context of ususal business cases like start and stop of a reservation or start and stop of some business processes. Such low level stuff like operatoins system scheduling is out of the scope. Particular topics I am going to handle are:
+In this blog post I will try to show you, what you can do to manage all this complexity, if you a java backend developer who develops REST services with Spring and Hibernate. I will treat the topic in the context of ususal business cases like start and stop of a reservation or start and stop of some business processes. Such low level stuff like operatoin system scheduling is out of the scope. Particular topics I am going to handle are:
 
 	* What is a timestamp and how can it be represented
-	* Date and time in the context of REST
+	* Timestamps in the context of REST
 	* Usage of modern java API
 	* Store timestamps in the DB
 
-Let's clarify first, what we are talking about, when we talking about timestamps.
+== Brief theoretical intro
+
+Let's clarify first, what we are talking about, when we talking about timestamps. Some months ago it turned out for me, that not everyone is know what a timestamp is and that it can have differen representations. So Wikipedia says:
+NOTE: A timestamp is a sequence of characters or encoded information identifying when a certain event occurred, usually giving date and time of day...[https://en.wikipedia.org/wiki/Timestamp]
+
+A timestamp is some sequence of characters that contains date and time. It must not be very surprising for you that to create a timestamp in Java you can call __System.currentTimeMillis()__ or __LocalDateTime.now()__. In both cases you get a timestamp but in different representations and with an additional information like a timezone. In the first case you get a huge number of milliseconds in the UTC timezone and in the second the current timestamp in a timezone of your location. The good news are that you can convert milliseconds in many other Java temporal types and vice versa.
+
+Since Java 8 you have a choice to split the timestamps into separate date (_LocalDate_) and separate time (_LocalTime_).
+
+[Section to introduce some theory]
+
+[REST Section]
+- add jackson jsr dependency!
+- add jackson configuration!
